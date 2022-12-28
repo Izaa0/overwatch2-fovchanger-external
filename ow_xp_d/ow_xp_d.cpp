@@ -4,7 +4,7 @@
 #include "proc.h"
 
 HANDLE hProc{ 0 };
-uintptr_t moduleBase, localplayerptr;
+uintptr_t moduleBase, fovAdress;
 
 DWORD procId;
 
