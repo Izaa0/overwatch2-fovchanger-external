@@ -24,8 +24,8 @@ void GetInformation() {
 		hProc = OpenProcess(PROCESS_ALL_ACCESS, NULL, procId);
 		moduleBase = GetModuleBaseAddress(procId, L"Overwatch.exe");
 		std::cout << (int)moduleBase << "\n";
-		localplayerptr = moduleBase + 0x3B67458;
-		std::cout << (int)localplayerptr << "\n";
+		fovAdress = moduleBase + 0x3B67458;
+		std::cout << (int)fovAdress << "\n";
 		processFound = 1;
 	}
 }
@@ -33,7 +33,7 @@ void iFovChanger() {
 	printf("Enter FOV Value: ");
 	std::cin >> iFovValue;
 	printf("\n");
-	WriteProcessMemory(hProc, (BYTE*)localplayerptr, &iFovValue, sizeof(iFovValue), nullptr); 
+	WriteProcessMemory(hProc, (BYTE*)fovAdress, &iFovValue, sizeof(iFovValue), nullptr); 
 
 }
 int main() {
